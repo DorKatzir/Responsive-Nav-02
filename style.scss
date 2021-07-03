@@ -9,6 +9,9 @@
     --nav-bg: #5d4954;
     --white-gray: rgb(226, 226, 226);
 }
+body{
+    overflow-x: hidden;
+}
 
 nav{
     display: flex;
@@ -55,15 +58,15 @@ nav{
     display: none;
 }
 
+
+
+
 @media screen and (max-width: 48em) {
-    body{
-        overflow-x: hidden;
-    }
-    
-    nav{
-        padding: 0 1rem 0 1rem;
-        justify-content: space-between;
-    }
+      
+    // nav{
+    //     padding: 0 1rem 0 1rem;
+    //     justify-content: space-between;
+    // }
     
     .nav-links{
         position: absolute;
@@ -75,16 +78,59 @@ nav{
         flex-direction: column;
         align-items: center;
         width: 50%;
-        transform: translateX(100%); // moves the links off the screen
+        transform: translateX(100%);
+        transition: transform .5s ease-in;
+
+        li{
+           opacity: 0; 
+        }
     }
     
     .burger{
         display: block;
-    }
-  
+        cursor: pointer;
+        transition: all .5s ease;
 
+    }
+
+
+  
+} // End Mobile Query
+
+
+
+.nav-active{
+    transform: translateX(0%);
 }
 
+
+
+@keyframes navLinkFade {
+
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    
+}
+
+
+.anim .line-1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+    transition: all .5s ease;
+}
+.anim .line-2{
+    opacity: 0;
+}
+.anim .line-3{
+    transform: rotate(45deg) translate(-5px, -6px);
+    transition: all .5s ease;
+}
 
 
 
